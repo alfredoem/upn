@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class PersonaAPP {
     
     public static void main(String[] args) {
-        String nombre = JOptionPane.showInputDialog("Introduce el nombre");
+        /*String nombre = JOptionPane.showInputDialog("Introduce el nombre");
         
         String texto = JOptionPane.showInputDialog("Introduce la edad");
         int edad = Integer.parseInt(texto);
@@ -26,10 +26,12 @@ public class PersonaAPP {
         double peso = Double.parseDouble(texto);
         
         texto = JOptionPane.showInputDialog("Introduce la altura");
-        double altura = Double.parseDouble(texto);
+        double altura = Double.parseDouble(texto);*/
         
         PersonaIMC persona1 = new PersonaIMC();
-        PersonaIMC persona2 = new PersonaIMC(nombre, edad, sexo);
+ 
+        
+       /* PersonaIMC persona2 = new PersonaIMC(nombre, edad, sexo);
         PersonaIMC persona3 = new PersonaIMC(nombre, edad, sexo, peso, altura);
         
         persona1.setNombre("Luisa");
@@ -54,7 +56,7 @@ public class PersonaAPP {
         System.out.println("Persona 3");
         muestraMensajePeso(persona3);
         muestraMayorDeEdad(persona3);
-        System.out.println(persona3.toString());
+        System.out.println(persona3.toString());*/
     }
         
     public static void muestraMensajePeso(PersonaIMC p) {

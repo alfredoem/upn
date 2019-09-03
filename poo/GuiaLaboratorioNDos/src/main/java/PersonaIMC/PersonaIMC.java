@@ -44,6 +44,10 @@ public class PersonaIMC {
         comprobarSexo();
     }
     
+    public static void main(String[] args) {
+        PersonaIMC persona1 = new PersonaIMC();
+    }
+    
     private void comprobarSexo() {
         if (sexo != 'M' && sexo != 'F') {
             this.sexo = SEXO_DEF;
@@ -51,14 +55,40 @@ public class PersonaIMC {
     }
     
     private void generarDni() {
-        final int divisor = 23;
+        int divisor = 23;
         
-        int numDNI = ((int) Math.floor(Math.random() * (100000000 - 10000000) + 10000000));
-        int res = numDNI - (numDNI / divisor * divisor);
+        // Math.random(), genera un numero positivo entre 0.0 y 1.0
+        // 0.9679165912555866 
         
+        //(100000000 - 10000000) + 10000000 = 100000000
+        
+        // Se realiza el producto con 100000000, con la intensicion de pasar 8 numeros a la parte entera
+        // 97112493,2130027
+
+        
+        // Con Math.floor obtenemos el double mas cercano al entero
+        // 97112493.1
+        // con (int) lo convertimo a un valor entero y asi obtenemos un entero de 8 numeros
+        // 97112493
+        
+        int numDNI = 97112493;
+        
+        
+        // (numDNI / 23)
+        // 4222282,304347826
+        // como es un enter multiplica 4222282 * 23
+        // 97112486
+        /// 97112493 - 97112486
+        int res = numDNI - (numDNI / 23 * 23);
+        // 7
+        
+        // obtiene la letra con el indice 7 del vector
         char letraDNI = generaLetraDNI(res);
         
+        // concatena el numero del dni con la letra
         DNI = Integer.toString(numDNI) + letraDNI;
+        
+        System.out.println(DNI);
         
     }
     

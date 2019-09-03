@@ -54,42 +54,17 @@ public class PersonaIMC {
         }
     }
     
+    
     private void generarDni() {
-        int divisor = 23;
+        final int divisor = 23;
         
-        // Math.random(), genera un numero positivo entre 0.0 y 1.0
-        // 0.9679165912555866 
+        int numDNI = ((int) Math.floor(Math.random() * (100000000 - 10000000) + 10000000));
+       
+        int res = numDNI - (numDNI / divisor * divisor);
         
-        //(100000000 - 10000000) + 10000000 = 100000000
-        
-        // Se realiza el producto con 100000000, con la intensicion de pasar 8 numeros a la parte entera
-        // 97112493,2130027
-
-        
-        // Con Math.floor obtenemos el double mas cercano al entero
-        // 97112493.1
-        // con (int) lo convertimo a un valor entero y asi obtenemos un entero de 8 numeros
-        // 97112493
-        
-        int numDNI = 97112493;
-        
-        
-        // (numDNI / 23)
-        // 4222282,304347826
-        // como es un enter multiplica 4222282 * 23
-        // 97112486
-        /// 97112493 - 97112486
-        int res = numDNI - (numDNI / 23 * 23);
-        // 7
-        
-        // obtiene la letra con el indice 7 del vector
         char letraDNI = generaLetraDNI(res);
         
-        // concatena el numero del dni con la letra
         DNI = Integer.toString(numDNI) + letraDNI;
-        
-        System.out.println(DNI);
-        
     }
     
     private char generaLetraDNI(int res) {
@@ -100,6 +75,48 @@ public class PersonaIMC {
         
         return letras[res];
     }
+    
+    /*private void generarDni() {
+        // cantidad de letras de la lista
+        final int divisor = 23;
+        
+        // Math.random(), genera un numero positivo entre 0.0 y 1.0
+        // 0.9679165912555866 
+        // Se realiza el producto con 90000000 y luego la suma con 10000000
+        // con la intensicion de convertirlo a un numero
+        // de 8 digitos en la parte entera
+        // 97112493,2130027
+        // Con Math.floor obtenemos el double mas cercano al entero
+        // 97112493.1
+        // con (int) lo convertimos a un valor entero y asi obtenemos un entero de 8 numeros
+        // 97112493
+        
+        int numDNI = ((int) Math.floor(Math.random() * (100000000 - 10000000) + 10000000));
+        
+        // La precedencia de operadores de java hacer que se opere primero (numDNI / 23)
+        // 4222282,304347826
+        // como es un entero, se sigue operando con la parte entera 4222282 * 23
+        // 97112486
+        // 97112493 - 97112486
+        // 7
+        int res = numDNI - (numDNI / divisor * divisor);
+        
+        // obtiene la letra con el indice 7 del vector
+        char letraDNI = generaLetraDNI(res);
+        
+        // concatena el numero del dni con la letra
+        // 97112493F
+        DNI = Integer.toString(numDNI) + letraDNI;
+    }
+    
+    private char generaLetraDNI(int res) {
+        char letras[] = {'T', 'R', 'W', 'A', 'G', 'M', 'Y',
+            'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
+            'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'
+        };
+        
+        return letras[res];
+    }*/
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
